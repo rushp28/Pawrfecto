@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.register');
+    return view('index');
 });
 
 Route::middleware([
@@ -27,4 +27,6 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('product-categories', \App\Http\Controllers\ProductCategoryController::class);
+
+    Route::resource('users', \App\Http\Controllers\UserController::class);
 });

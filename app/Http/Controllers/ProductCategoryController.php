@@ -55,7 +55,12 @@ class ProductCategoryController extends Controller
      */
     public function edit(ProductCategory $productCategory)
     {
-        return view('admin.product_categories.form');
+        $parent_categories = ProductCategory::whereNull('parent_id')->get();
+
+        return view('admin.product_categories.form', [
+            'product_category' => $productCategory,
+            'parent_categories' => $parent_categories,
+        ]);
     }
 
     /**

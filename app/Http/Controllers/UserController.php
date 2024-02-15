@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
         return view('admin.users.index', [
-            'users' => User::paginate(10)
+            'users' => User::paginate(10),
         ]);
     }
 
@@ -29,14 +29,14 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'role' => 'required'
+            'role' => 'required',
         ]);
 
         $validated['password'] = bcrypt('password');
 
         User::create($validated);
 
-        return redirect()->route('user.index')->with('success', 'User successfully created!');
+        return redirect()->route('users.index')->with('success', 'User successfully created!');
     }
 
     /**
@@ -52,7 +52,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.user.form', [
+        return view('admin.users.form', [
             'user' => $user,
             'roles' => Role::cases()
         ]);
@@ -71,7 +71,7 @@ class UserController extends Controller
 
         $user->update($validated);
 
-        return redirect()->route('user.index')->with('success', 'User successfully updated!');
+        return redirect()->route('users.index')->with('success', 'User successfully updated!');
     }
 
     /**
@@ -81,6 +81,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('user.index')->with('success', 'User successfully deleted!');
+        return redirect()->route('users.index')->with('success', 'User successfully deleted!');
     }
 }
