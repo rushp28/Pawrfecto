@@ -16,17 +16,6 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                        {{ __('Users') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('product-categories.index') }}" :active="request()->routeIs('product-categories.index')">
-                        {{ __('Product Categories') }}
-                    </x-nav-link>
-                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -112,6 +101,14 @@
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
+                            </x-dropdown-link>
+
+                            <x-dropdown-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                                {{ __('View Users') }}
+                            </x-dropdown-link>
+                            
+                            <x-dropdown-link href="{{ route('product-categories.index') }}" :active="request()->routeIs('product-categories.index')">
+                                {{ __('View Categories') }}
                             </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
