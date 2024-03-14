@@ -6,7 +6,7 @@
         <div class="relative z-10 px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Highest Quality Care For Pets You'll Love</h1>
             <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Your One-Stop Shop for All Things Furry and Fabulous! Discover Delightful Delicacies, Cozy Comforts, and Wag-Worthy Wonders Tailored Just for Your Beloved Pets.</p>
-            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">z
                 <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-green-400 border-2 border-green-400 hover:bg-transparent focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                     View Products
                     <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0  0  14  10">
@@ -26,10 +26,10 @@
         </div>
 
         <div class="flex justify-center">
-            <x-product-card :imageUrl="asset('images/image_4.jpg')" :name="'Your Product Name'" :price="599" />
-            <x-product-card :imageUrl="asset('images/image_4.jpg')" :name="'Your Product Name'" :price="599" />
-            <x-product-card :imageUrl="asset('images/image_4.jpg')" :name="'Your Product Name'" :price="599" />
-            <x-product-card :imageUrl="asset('images/image_4.jpg')" :name="'Your Product Name'" :price="599" />
+            <x-product-card :imageUrl="asset('images/product_1.jpg')" :name="'Your Product Name'" :price="599" />
+            <x-product-card :imageUrl="asset('images/product_2.jpg')" :name="'Your Product Name'" :price="599" />
+            <x-product-card :imageUrl="asset('images/product_3.jpeg')" :name="'Your Product Name'" :price="599" />
+            <x-product-card :imageUrl="asset('images/product_4.jpeg')" :name="'Your Product Name'" :price="599" />
         </div>
     </section>
 
@@ -46,7 +46,7 @@
                         <p class="text-gray-600">From comfy beds to stylish accessories, we have everything your dog needs for a paw-some life.</p>
                         <a href="#" class="btn-custom inline-flex items-center justify-center text-gray-900 hover:text-gray-700">
                     <span class="mr-1">
-                        Read more
+                        Check them out
                     </span>
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -64,7 +64,7 @@
                         <p class="text-gray-600">Catering to the discerning tastes of cats, our products are sure to satisfy even the most finicky feline.</p>
                         <a href="#" class="btn-custom inline-flex items-center justify-center text-gray-900 hover:text-gray-700">
                             <span class="mr-1">
-                                Read more
+                                Check them out
                             </span>
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -82,7 +82,7 @@
                         <p class="text-gray-600">Elevate your pet's comfort and happiness with our wide range of products for all types of pets.</p>
                         <a href="#" class="btn-custom inline-flex items-center justify-center text-gray-900 hover:text-gray-700">
                             <span class="mr-1">
-                                Read more
+                                Check them out
                             </span>
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -102,15 +102,15 @@
         <div class="flex justify-center">
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+                    <img class="rounded-t-lg" src="{{ asset('images/bg_1.jpg') }}" alt="" />
                 </a>
                 <div class="p-5">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Paws & Claws Emporium</h5>
                     </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Your one-stop destination for all your furry friends' needs! From premium pet food to stylish accessories, we've got everything to keep your pets happy and healthy.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-green-400 dark:focus:ring-blue-800">
+                        Check them out
                         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                         </svg>
@@ -120,15 +120,33 @@
 
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+                    <img class="rounded-t-lg" src="{{ asset('images/bg_1.jpg') }}" alt="" />
                 </a>
                 <div class="p-5">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Happy Tails Pet Haven</h5>
                     </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Welcome to Happy Tails Pet Haven, where tails wag and pets play! Discover a wide selection of toys, treats, and grooming essentials for your beloved companions.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-green-400 dark:focus:ring-blue-800">
+                        Check them out
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg" src="{{ asset('images/bg_1.jpg') }}" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Happy Tails Pet Haven</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Welcome to Happy Tails Pet Haven, where tails wag and pets play! Discover a wide selection of toys, treats, and grooming essentials for your beloved companions.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-green-400 dark:focus:ring-blue-800">
+                        Check them out
                         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                         </svg>

@@ -4,33 +4,28 @@
         </div>
 
         <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur amet culpa cum
-            itaque neque.
+            Your One-Stop Shop for All Things Furry and Fabulous! Discover Delightful Delicacies, Cozy Comforts, and Wag-Worthy Wonders Tailored Just for Your Beloved Pets.
         </p>
 
         <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
             <li>
+                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Stores </a>
+            </li>
+
+            <li>
+                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Subscriptions </a>
+            </li>
+
+            <li>
+                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Products </a>
+            </li>
+
+            <li>
+                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Contact </a>
+            </li>
+
+            <li>
                 <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> About </a>
-            </li>
-
-            <li>
-                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Careers </a>
-            </li>
-
-            <li>
-                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> History </a>
-            </li>
-
-            <li>
-                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Services </a>
-            </li>
-
-            <li>
-                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Projects </a>
-            </li>
-
-            <li>
-                <a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Blog </a>
             </li>
         </ul>
 

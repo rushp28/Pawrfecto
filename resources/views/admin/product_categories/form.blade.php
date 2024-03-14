@@ -25,8 +25,8 @@
 
                     <div>
                         <label for="parent_id" class="block text-sm font-medium text-gray-700">Parent Category</label>
-                        <select name="parent_id" id="parent_id"
-                                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                        <select name="parent_id" id="parent_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="">No Parent Category</option> <!-- New option for keeping the field null -->
                             <option value="" disabled>Select Parent Category</option>
                             @foreach ($parent_categories as $parent_category)
                                 <option value="{{ $parent_category->id }}" {{ isset($product_category) && $product_category->parent_id === $parent_category->id ? 'selected' : '' }}>
