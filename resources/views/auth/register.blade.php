@@ -29,6 +29,42 @@
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
+            <!-- Date of Birth Field -->
+            <div class="mt-4">
+                <x-label for="date_of_birth" value="{{ __('Date of Birth') }}" />
+                <x-input id="date_of_birth" class="block mt-1 w-full" type="date" name="date_of_birth" :value="old('date_of_birth')" required />
+            </div>
+
+            <!-- Mobile Number Field -->
+            <div class="mt-4">
+                <x-label for="phone_number" value="{{ __('Phone Number') }}" />
+                <x-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number" :value="old('phone_number')" required maxlength="10" />
+            </div>
+
+            <!-- Street Address Field -->
+            <div class="mt-4">
+                <x-label for="street_address" value="{{ __('Street Address') }}" />
+                <x-input id="street_address" class="block mt-1 w-full" type="text" name="street_address" :value="old('street_address')" required maxlength="255" />
+            </div>
+
+            <!-- City Field -->
+            <div class="mt-4">
+                <x-label for="city" value="{{ __('City') }}" />
+                <x-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required maxlength="100" />
+            </div>
+
+            <!-- State Field -->
+            <div class="mt-4">
+                <x-label for="state" value="{{ __('State') }}" />
+                <x-input id="state" class="block mt-1 w-full" type="text" name="state" :value="old('state')" required maxlength="100" />
+            </div>
+
+            <!-- Postal Code Field -->
+            <div class="mt-4">
+                <x-label for="postal_code" value="{{ __('Postal Code') }}" />
+                <x-input id="postal_code" class="block mt-1 w-full" type="text" name="postal_code" :value="old('postal_code')" maxlength="10" />
+            </div>
+
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-label for="terms">
