@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,14 +28,16 @@ Route::middleware([
     });
 
     Route::middleware(['role:vendor'])->group(function () {
-        // Routes for vendor
+        Route::resource('vendors', VendorController::class);
     });
 
     Route::middleware(['role:custom vendor role'])->group(function () {
-        // Routes for custom vendor role
+
     });
 
     Route::middleware(['role:customer'])->group(function () {
         Route::resource('customers', CustomerController::class);
     });
 });
+
+Route::get('/vendor-register', [App\Http\Controllers\HomeController::class, 'redirectToVendorRegister'])->name('vendor-register');

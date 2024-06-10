@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use App\Models\Customer;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Vendor;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -42,19 +43,33 @@ class CreateNewUser implements CreatesNewUsers
                 'password' => Hash::make($input['password']),
             ]);
 
-            Customer::create([
-                'user_id' => $user->id,
-                'date_of_birth' => $input['date_of_birth'],
-                'phone_number' => $input['phone_number'],
-                'street_address' => $input['street_address'],
-                'city' => $input['city'],
-                'state' => $input['state'],
-                'postal_code' => $input['postal_code'],
-            ]);
+            if ($input['role'] === 'customer') {
+                Customer::create([
+                    'user_id' => $user->id,
+                    'date_of_birth' => $input['date_of_birth'],
+                    'phone_number' => $input['phone_number'],
+                    'street_address' => $input['street_address'],
+                    'city' => $input['city'],
+                    'state' => $input['state'],
+                    'postal_code' => $input['postal_code'],
+                ]);
 
-            $role = Role::where('name', 'customer')->first();
-            if ($role) {
-                $user->roles()->attach($role);
+                $role = Role::where('name', 'customer')->first();
+                if ($role) {
+                    $user->roles()->attach($role);
+                }
+            }
+            elseif ($input['role'] === 'vendor') {
+                Vendor::create([
+                    'user_id' => $user->id,
+                    'date_of_birth' => $input['date_of_birth'],
+                    'phone_number' => $input['phone_number'],
+                ]);
+
+                $role = Role::where('name', 'vendor')->first();
+                if ($role) {
+                    $user->roles()->attach($role);
+                }
             }
 
             return $user;

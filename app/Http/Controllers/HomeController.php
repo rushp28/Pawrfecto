@@ -16,8 +16,9 @@ class HomeController extends Controller
         }
 //        elseif (Auth::user()->hasRole('admin')) {
 //        }
-//        elseif (Auth::user()->hasRole('vendor')) {
-//        }
+        elseif (Auth::user()->hasRole('vendor')) {
+            return view('dashboard');
+        }
 //        elseif (Auth::user()->hasRole('custom vendor role')) {
 //        }
         elseif ($user->hasRole('customer')) {
@@ -26,5 +27,10 @@ class HomeController extends Controller
         else {
             return view('dashboard');
         }
+    }
+
+    public function redirectToVendorRegister()
+    {
+        return view('vendors.auth.register');
     }
 }

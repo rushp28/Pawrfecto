@@ -33,11 +33,11 @@
                         </a>
 
                         @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
-                            >
+                            <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/ focus:outline-none focus-visible:ring-[#FF2D20]">
                                 Register
+                            </a>
+                            <a href="{{ route('vendor-register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/ focus:outline-none focus-visible:ring-[#FF2D20]">
+                                Create Vendor Account
                             </a>
                         @endif
                     @endauth

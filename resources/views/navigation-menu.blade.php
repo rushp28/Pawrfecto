@@ -109,6 +109,13 @@
                                 </x-dropdown-link>
                             @endif
 
+                            <!-- Vendor Profile Navigation Link -->
+                            @if(auth()->user()->hasRole('vendor'))
+                                <x-dropdown-link href="{{ route('vendors.edit', Auth::user()->vendor->id) }}">
+                                    {{ __('Vendor Profile') }}
+                                </x-dropdown-link>
+                            @endif
+
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}

@@ -80,6 +80,11 @@ class User extends Authenticatable
         return $this->hasOne(SuperAdmin::class);
     }
 
+    public function vendor(): HasOne
+    {
+        return $this->hasOne(Vendor::class);
+    }
+
     public function customer(): HasOne
     {
         return $this->hasOne(Customer::class);
