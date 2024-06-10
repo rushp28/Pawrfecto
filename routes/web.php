@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,6 +35,6 @@ Route::middleware([
     });
 
     Route::middleware(['role:customer'])->group(function () {
-        // Routes for customer
+        Route::resource('customers', CustomerController::class);
     });
 });

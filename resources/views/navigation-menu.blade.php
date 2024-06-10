@@ -102,6 +102,13 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
+                            <!-- Customer Profile Navigation Link -->
+                            @if(auth()->user()->hasRole('customer'))
+                                <x-dropdown-link href="{{ route('customers.edit', Auth::user()->customer->id) }}">
+                                    {{ __('Customer Profile') }}
+                                </x-dropdown-link>
+                            @endif
+
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}

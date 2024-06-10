@@ -80,18 +80,8 @@ class User extends Authenticatable
         return $this->hasOne(SuperAdmin::class);
     }
 
-    public function isSuperAdmin(): bool
-    {
-        return $this->hasRole('super-admin');
-    }
-
     public function customer(): HasOne
     {
         return $this->hasOne(Customer::class);
-    }
-
-    public function isCustomer(): bool
-    {
-        return $this->hasRole('customer');
     }
 }

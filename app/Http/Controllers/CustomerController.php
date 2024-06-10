@@ -45,7 +45,10 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('customers.profile.index', [
+            'user' => $customer->user(),
+            'customer' => $customer,
+        ]);
     }
 
     /**
@@ -53,7 +56,9 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        $customer->update($request->validated());
+
+        return redirect()->route('customers.edit', $customer)->with('status', 'Saved.');
     }
 
     /**
