@@ -22,10 +22,10 @@ class SuperAdminSeeder extends Seeder
         ]);
 
         SuperAdmin::create([
-            'user_id' => 1,
+            'user_id' => $user->id,
         ]);
 
-        $role = Role::where('name', 'super_admin')->first();
+        $role = Role::where('name', 'super admin')->first();
         if ($role) {
             $user->roles()->attach($role);
         }

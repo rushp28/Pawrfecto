@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,7 @@ Route::middleware([
     Route::get('/redirect', [App\Http\Controllers\HomeController::class, 'redirect'])->name('redirect');
 
     Route::middleware(['role:super admin'])->group(function () {
-        // Routes for super admin
+        Route::resource('users', UserController::class);
     });
 
     Route::middleware(['role:admin'])->group(function () {
