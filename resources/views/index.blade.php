@@ -44,6 +44,9 @@
                 </nav>
            @endif
         </header>
+        <div id="preloader" class="preloader">
+            <div class="spinner"></div>
+        </div>
         <section class="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply" style="background-image: url('{{ asset('images/conference.jpg') }}');">
             <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>

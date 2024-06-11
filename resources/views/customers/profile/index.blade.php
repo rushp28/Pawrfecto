@@ -25,11 +25,11 @@
                             <!-- Personal Information Section -->
                             <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-md">
                                 <div class="grid grid-cols-6 gap-6">
-                                    <!-- Mobile Number Field -->
+                                    <!-- Phone Number Field -->
                                     <div class="col-span-6 sm:col-span-4">
-                                        <x-label for="mobile_number" value="{{ __('Mobile Number') }}" />
-                                        <x-input id="mobile_number" name="mobile_number" type="text" class="block w-full mt-1" value="{{ old('mobile_number', $customer->phone_number) }}" autocomplete="mobile-number" required maxlength="10" />
-                                        <x-input-error for="mobile_number" class="mt-2" />
+                                        <x-label for="phone_number" value="{{ __('Phone Number') }}" />
+                                        <x-input id="phone_number" name="phone_number" type="text" class="block w-full mt-1" value="{{ old('phone_number', $customer->phone_number) }}" autocomplete="phone-number" required maxlength="10" />
+                                        <x-input-error for="phone_number" class="mt-2" />
                                     </div>
 
                                     <!-- Date of Birth Field -->

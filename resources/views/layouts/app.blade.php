@@ -18,6 +18,10 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
+        <div id="preloader" class="preloader">
+            <div class="spinner"></div>
+        </div>
+
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">

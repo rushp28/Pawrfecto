@@ -12,6 +12,24 @@ class DeleteUser implements DeletesUsers
      */
     public function delete(User $user): void
     {
+        if ($user->hasRole('super admin')) {
+            if ($user->email === "superadmin@pawrfecto.lk") {
+                return;
+            }
+
+            $superAdmin = $user->superAdmin;
+            $superAdmin->delete();
+        }
+        elseif ($user->hasRole('vendor')) {
+            $vendor = $user->vendor;
+            $vendor->delete();
+        }
+        elseif ($user->hasRole('customer')) {
+            $customer = $user->customer;
+            $customer->delete();
+        }
+
+        $user->roles()->detach();
         $user->deleteProfilePhoto();
         $user->tokens->each->delete();
         $user->delete();
