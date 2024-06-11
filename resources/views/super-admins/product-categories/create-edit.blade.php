@@ -70,7 +70,7 @@
                                     <div class="col-span-6 sm:col-span-4">
                                         <x-label for="name" value="{{ __('Product Category Name') }}" />
                                         <x-input id="name" name="name" type="text" class="block w-full mt-1"
-                                                 value="{{ $action === 'edit' ? $product_category->name : 'yes' }}" required maxlength="128" />
+                                                 value="{{ $action === 'edit' ? $product_category->name : old('name') }}" required maxlength="128" />
                                         <x-input-error for="name" class="mt-2" />
                                     </div>
 

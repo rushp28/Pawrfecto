@@ -22,9 +22,14 @@ class ProductController extends Controller
                 'products' => Product::all(),
             ]);
         }
-        elseif (Auth::user()->hasRole('vendor')) {
+        elseif ($user->hasRole('vendor')) {
             return view('vendors.products.index', [
                 'products' => Product::where('shop_id', auth()->user()->vendor->shop->id)->get(),
+            ]);
+        }
+        elseif ($user->hasRole('customer')) {
+            return view('customers.products.index', [
+                'products' => Product::all(),
             ]);
         }
     }
@@ -41,7 +46,7 @@ class ProductController extends Controller
                 'products' => Product::all(),
             ]);
         }
-        elseif (Auth::user()->hasRole('vendor')) {
+        elseif ($user->hasRole('vendor')) {
             return view('vendors.products.create-edit', [
                 'action' => 'create',
                 'product_categories' => ProductCategory::all(),

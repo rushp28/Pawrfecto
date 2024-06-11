@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
@@ -45,6 +46,11 @@ Route::middleware([
 
     Route::middleware(['role:customer'])->group(function () {
         Route::resource('customers', CustomerController::class);
+        Route::get('products', [ProductController::class, 'index'])->name('products.index');
+        Route::resource('carts', CartController::class);
+        Route::post('carts/add/{productId}', [CartController::class, 'addToCart'])->name('carts.add');
+        Route::post('carts/remove/{productId}', [CartController::class, 'removeFromCart'])->name('carts.remove');
+        Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     });
 });
 

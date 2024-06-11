@@ -44,6 +44,17 @@
                             {{ __('Products') }}
                         </x-nav-link>
                     </div>
+                @elseif(auth()->user()->hasRole('customer'))
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
+                            {{ __('Products') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('carts.index') }}" :active="request()->routeIs('carts.index')">
+                            {{ __('Cart') }}
+                        </x-nav-link>
+                    </div>
                 @endif
             </div>
 

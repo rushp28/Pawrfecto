@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignId('product_category_id')->nullable()->references('id')->on('product_categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name', 128);
             $table->string('description', 256)->nullable();
-            $table->decimal('price', 10)->default(0);
-            $table->decimal('discounted_price', 10)->default(0);
+            $table->float('price', 10)->default(0);
+            $table->float('discounted_price', 10)->default(0);
             $table->integer('quantity')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

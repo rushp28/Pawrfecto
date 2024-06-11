@@ -29,7 +29,7 @@ class ProductCategoryController extends Controller
 
         return view('super-admins.product-categories.create-edit', [
             'action' => 'create',
-            'product_categories' => $product_categories,
+            'parent_product_categories' => $product_categories,
         ]);
     }
 
