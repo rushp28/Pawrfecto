@@ -20,13 +20,28 @@
                 @if(auth()->user()->hasRole('super admin'))
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                            {{ __('Users') }}
+                            {{ __('Manage Users') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('product-categories.index') }}" :active="request()->routeIs('product-categories.index')">
+                            {{ __('Manage Product Categories') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
+                            {{ __('Products') }}
                         </x-nav-link>
                     </div>
                 @elseif(auth()->user()->hasRole('vendor'))
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link href="{{ route('shops.edit', auth()->user()->vendor->shop) }}" :active="request()->routeIs('shops.edit')">
                             {{ __('Shop') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
+                            {{ __('Products') }}
                         </x-nav-link>
                     </div>
                 @endif

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
@@ -23,6 +25,8 @@ Route::middleware([
 
     Route::middleware(['role:super admin'])->group(function () {
         Route::resource('users', UserController::class);
+        Route::resource('product-categories', ProductCategoryController::class);
+        Route::resource('products', ProductController::class);
     });
 
     Route::middleware(['role:admin'])->group(function () {
@@ -32,6 +36,7 @@ Route::middleware([
     Route::middleware(['role:vendor'])->group(function () {
         Route::resource('vendors', VendorController::class);
         Route::resource('shops', ShopController::class);
+        Route::resource('products', ProductController::class);
     });
 
     Route::middleware(['role:custom vendor role'])->group(function () {

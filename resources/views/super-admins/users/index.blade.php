@@ -107,19 +107,15 @@
                                 <div class="flex items-center">
                                     @if($user->hasRole('vendor'))
                                         @if($user->vendor->is_account_active)
-                                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                            Active
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-400 text-white">Active</span>
                                         @else
-                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>
-                                            Inactive
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-500 text-white">Inactive</span>
                                         @endif
                                     @elseif($user->hasRole('customer'))
                                         @if($user->customer->is_account_active)
-                                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                            Active
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-400 text-white">Active</span>
                                         @else
-                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>
-                                            Inactive
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-500 text-white">Inactive</span>
                                         @endif
                                     @endif
                                 </div>
