@@ -21,6 +21,15 @@ class Customer extends Model
         'is_account_active',
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'user_id' => 'integer',
+            'date_of_birth' => 'date',
+            'is_account_active' => 'boolean',
+        ];
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,7 @@ Route::middleware([
 
     Route::middleware(['role:vendor'])->group(function () {
         Route::resource('vendors', VendorController::class);
+        Route::resource('shops', ShopController::class);
     });
 
     Route::middleware(['role:custom vendor role'])->group(function () {

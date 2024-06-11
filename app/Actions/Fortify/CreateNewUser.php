@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Models\Customer;
 use App\Models\Role;
+use App\Models\Shop;
 use App\Models\User;
 use App\Models\Vendor;
 use Illuminate\Support\Facades\DB;
@@ -60,7 +61,7 @@ class CreateNewUser implements CreatesNewUsers
                 }
             }
             elseif ($input['role'] === 'vendor') {
-                Vendor::create([
+                $vendor = Vendor::create([
                     'user_id' => $user->id,
                     'date_of_birth' => $input['date_of_birth'],
                     'phone_number' => $input['phone_number'],
@@ -70,6 +71,17 @@ class CreateNewUser implements CreatesNewUsers
                 if ($role) {
                     $user->roles()->attach($role);
                 }
+
+                Shop::create([
+                    'vendor_id' => $vendor->id,
+                    'name' => $input['name'] . "'s Shop",
+                    'description' => 'Welcome to ' . $input['name'] . "'s Shop!",
+                    'phone_number' => $input['phone_number'],
+                    'street_address' => $input['street_address'],
+                    'city' => $input['city'],
+                    'state' => $input['state'],
+                    'postal_code' => $input['postal_code'],
+                ]);
             }
 
             return $user;

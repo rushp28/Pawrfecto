@@ -17,6 +17,13 @@ class Role extends Model
         'is_default'
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'is_default' => 'boolean',
+        ];
+    }
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'user_roles');

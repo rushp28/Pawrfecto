@@ -1,9 +1,11 @@
 <x-app-layout>
     <!-- Page Header -->
     <x-slot name="header">
-        <h2 class="text-xl font-semibold text-gray-800 leading-tight">
-            {{ __('Customer Profile') }}
-        </h2>
+        <div class="flex justify-between items-center">
+            <h2 class="text-2xl font-semibold text-gray-800 leading-tight">
+                {{ $shop->name }}
+            </h2>
+        </div>
     </x-slot>
 
     <div>
@@ -12,58 +14,65 @@
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <x-section-title>
-                        <x-slot name="title">{{ __('Personal Information') }}</x-slot>
-                        <x-slot name="description">{{ __('Update your mobile number, date of birth and address.') }}</x-slot>
+                        <x-slot name="title">{{ __('Shop Information') }}</x-slot>
+                        <x-slot name="description">{{ __('Update your shop information.') }}</x-slot>
                     </x-section-title>
 
                     <!-- Form Container -->
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <form method="POST" action="{{ route('customers.update', $customer->id) }}">
+                        <form method="POST" action="{{ route('shops.update', $shop->id) }}">
                             @csrf
                             @method('PUT')
 
-                            <!-- Personal Information Section -->
+                            <!-- Shop Information Section -->
                             <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-md">
                                 <div class="grid grid-cols-6 gap-6">
+                                    <!-- Name Field -->
+                                    <div class="col-span-6 sm:col-span-4">
+                                        <x-label for="name" value="{{ __('Name') }}" />
+                                        <x-input id="name" name="name" type="text" class="block w-full mt-1" value="{{ old('name', $shop->name) }}" autocomplete="name" required />
+                                        <x-input-error for="name" class="mt-2" />
+                                    </div>
+
+                                    <!-- Description Field -->
+                                    <div class="col-span-6 sm:col-span-4">
+                                        <x-label for="description" value="{{ __('Description') }}" />
+                                        <x-input id="description" name="description" type="text" class="block w-full mt-1" value="{{ old('description', $shop->description) }}" autocomplete="description" required />
+                                        <x-input-error for="description" class="mt-2" />
+                                    </div>
+
                                     <!-- Phone Number Field -->
                                     <div class="col-span-6 sm:col-span-4">
                                         <x-label for="phone_number" value="{{ __('Phone Number') }}" />
-                                        <x-input id="phone_number" name="phone_number" type="text" class="block w-full mt-1" value="{{ old('phone_number', $customer->phone_number) }}" autocomplete="phone-number" required maxlength="10" />
+                                        <x-input id="phone_number" name="phone_number" type="text" class="block w-full mt-1" value="{{ old('phone_number', $shop->phone_number) }}" autocomplete="phone_number" required maxlength="10" />
                                         <x-input-error for="phone_number" class="mt-2" />
-                                    </div>
-
-                                    <!-- Date of Birth Field -->
-                                    <div class="col-span-6 sm:col-span-4">
-                                        <x-label for="date_of_birth" value="{{ __('Date Of Birth') }}" />
-                                        <x-input id="date_of_birth" name="date_of_birth" type="date" class="block w-full mt-1" value="{{ old('date_of_birth', $customer->date_of_birth->format('Y-m-d')) }}" autocomplete="date-of-birth" required />
-                                        <x-input-error for="date_of_birth" class="mt-2" />
                                     </div>
 
                                     <!-- Street Address Field -->
                                     <div class="col-span-6 sm:col-span-6">
                                         <x-label for="street_address" value="{{ __('Street Address') }}" />
-                                        <x-input id="street_address" name="street_address" type="text" class="block w-full mt-1" value="{{ old('street_address', $customer->street_address) }}" autocomplete="street-address" required maxlength="255" />
+                                        <x-input id="street_address" name="street_address" type="text" class="block w-full mt-1" value="{{ old('street_address', $shop->street_address) }}" autocomplete="street-address" required maxlength="255" />
                                         <x-input-error for="street_address" class="mt-2" />
                                     </div>
 
                                     <!-- City Field -->
                                     <div class="col-span-6 sm:col-span-2">
                                         <x-label for="city" value="{{ __('City') }}" />
-                                        <x-input id="city" name="city" type="text" class="block w-full mt-1" value="{{ old('city', $customer->city) }}" autocomplete="city" required maxlength="100" />
+                                        <x-input id="city" name="city" type="text" class="block w-full mt-1" value="{{ old('city', $shop->city) }}" autocomplete="city" required maxlength="100" />
                                         <x-input-error for="city" class="mt-2" />
                                     </div>
 
                                     <!-- State Field -->
                                     <div class="col-span-6 sm:col-span-2">
                                         <x-label for="state" value="{{ __('State') }}" />
-                                        <x-input id="state" name="state" type="text" class="block w-full mt-1" value="{{ old('state', $customer->state) }}" autocomplete="state" required maxlength="100" />
+                                        <x-input id="state" name="state" type="text" class="block w-full mt-1" value="{{ old('state', $shop->state) }}" autocomplete="state" required maxlength="100" />
                                         <x-input-error for="state" class="mt-2" />
                                     </div>
 
                                     <!-- Postal Code Field -->
                                     <div class="col-span-6 sm:col-span-2">
                                         <x-label for="postal_code" value="{{ __('Postal Code') }}" />
-                                        <x-input id="postal_code" name="postal_code" type="text" class="block w-full mt-1" value="{{ old('postal_code', $customer->postal_code) }}" autocomplete="postal-code" required maxlength="10" />
+                                        <x-input id="postal_code" name="postal_code" type="text" class="block w-full mt-1" value="{{ old('postal_code', $shop->postal_code) }}" autocomplete="postal-code" required maxlength="10" />
                                         <x-input-error for="postal_code" class="mt-2" />
                                     </div>
                                 </div>

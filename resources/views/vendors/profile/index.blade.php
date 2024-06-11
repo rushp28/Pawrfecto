@@ -35,7 +35,7 @@
                                     <!-- Date of Birth Field -->
                                     <div class="col-span-6 sm:col-span-4">
                                         <x-label for="date_of_birth" value="{{ __('Date Of Birth') }}" />
-                                        <x-input id="date_of_birth" name="date_of_birth" type="date" class="block w-full mt-1" value="{{ old('date_of_birth', $vendor->date_of_birth) }}" autocomplete="date-of-birth" required />
+                                        <x-input id="date_of_birth" name="date_of_birth" type="date" class="block w-full mt-1" value="{{ old('date_of_birth', $vendor->date_of_birth->format('Y-m-d')) }}" autocomplete="date-of-birth" required />
                                         <x-input-error for="date_of_birth" class="mt-2" />
                                     </div>
                                 </div>

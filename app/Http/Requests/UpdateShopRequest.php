@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateVendorRequest extends FormRequest
+class UpdateShopRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,14 @@ class UpdateVendorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => ['nullable', 'integer', 'unique:customers', 'exists:users,id'],
-            'date_of_birth' => ['required', 'date'],
+            'vendor_id' => ['required', 'integer', 'unique:shops', 'exists:vendors,id'],
+            'name' => ['required', 'string', 'max:64'],
+            'description' => ['nullable', 'string', 'max:256'],
             'phone_number' => ['nullable', 'string', 'digits:10'],
+            'street_address' => ['required', 'string', 'max:256'],
+            'city' => ['required', 'string', 'max:128'],
+            'state' => ['required', 'string', 'max:128'],
+            'postal_code' => ['nullable', 'string', 'max_digits:10'],
         ];
     }
 }

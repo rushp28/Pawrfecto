@@ -6,23 +6,30 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class SuperAdmin extends Model
+class Shop extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'vendor_id',
+        'name',
+        'description',
+        'phone_number',
+        'street_address',
+        'city',
+        'state',
+        'postal_code',
     ];
 
     protected function casts(): array
     {
         return [
-            'user_id' => 'integer',
+            'vendor_id' => 'integer',
         ];
     }
 
-    public function user(): BelongsTo
+    public function vendor(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Vendor::class, 'vendor_id');
     }
 }

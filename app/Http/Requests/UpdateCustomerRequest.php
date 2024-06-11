@@ -25,11 +25,11 @@ class UpdateCustomerRequest extends FormRequest
         return [
             'user_id' => ['nullable', 'integer', 'unique:customers', 'exists:users,id'],
             'date_of_birth' => ['required', 'date'],
-            'phone_number' => ['nullable', 'string', 'size:10'],
+            'phone_number' => ['nullable', 'string', 'digits:10'],
             'street_address' => ['required', 'string', 'max:256'],
             'city' => ['required', 'string', 'max:128'],
             'state' => ['required', 'string', 'max:128'],
-            'postal_code' => ['nullable', 'string', 'max:10'],
+            'postal_code' => ['nullable', 'string', 'max_digits:10'],
         ];
     }
 }

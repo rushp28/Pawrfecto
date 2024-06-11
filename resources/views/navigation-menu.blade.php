@@ -23,6 +23,12 @@
                             {{ __('Users') }}
                         </x-nav-link>
                     </div>
+                @elseif(auth()->user()->hasRole('vendor'))
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('shops.edit', auth()->user()->vendor->shop) }}" :active="request()->routeIs('shops.edit')">
+                            {{ __('Shop') }}
+                        </x-nav-link>
+                    </div>
                 @endif
             </div>
 
