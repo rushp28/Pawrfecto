@@ -10,7 +10,10 @@
         "laravel/jetstream": "^5.1",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.0"
+        "league/omnipay": "^3.2",
+        "livewire/livewire": "^3.0",
+        "omnipay/paypal": "^3.0",
+        "spatie/laravel-analytics": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

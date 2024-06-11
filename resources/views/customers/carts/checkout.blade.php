@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <div class="my-8">
             <!-- Checkout form -->
-            <form action="{{ route('checkout.process') }}" method="POST">
+            <form action="{{ route('payment') }}" method="POST">
                 @csrf
 
                 <!-- Shipping and payment details inputs -->
@@ -20,6 +20,8 @@
                 <div class="mt-4">
                     <strong>Total: ${{ $cart->total }}</strong>
                 </div>
+
+                <input name="cart_total" id="cart_total" hidden value={{ $cart->total }}>
 
                 <!-- Checkout button -->
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Checkout</button>

@@ -162,8 +162,31 @@ class CartController extends Controller
 
     public function checkout()
     {
-        $cart = auth()->user()->customer->carts->with('products')->first();
+        $cart = Cart::where('customer_id', auth()->user()->customer->id)->first();
 
         return view('customers.carts.checkout', compact('cart'));
+    }
+
+    public function processCheckout(Request $request)
+    {
+        $cart = auth()->user()->customer->carts->first()->with('products')->first();
+
+        if (!$cart || $cart->products->isEmpty()) {
+            return redirect()->route('carts.index')->with('error', 'Your cart is empty.');
+        }
+
+        // Handle payment processing, order creation, etc.
+
+        // Clear the cart after successful checkout
+        $cart->products()->detach();
+        $cart->update([
+            'product_count' => 0,
+            'sub_total' => 0,
+            'total_discount' => 0,
+            'total_tax' => 0,
+            'total' => 0,
+        ]);
+
+        return redirect()->route('carts.index');
     }
 }

@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             SuperAdminSeeder::class,
             VendorSeeder::class,
             CustomerSeeder::class,
+            ProductCategorySeeder::class,
+            ProductSeeder::class,
+            CartSeeder::class,
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Role;
 use App\Models\Shop;
@@ -45,7 +46,7 @@ class CreateNewUser implements CreatesNewUsers
             ]);
 
             if ($input['role'] === 'customer') {
-                Customer::create([
+                $customer = Customer::create([
                     'user_id' => $user->id,
                     'date_of_birth' => $input['date_of_birth'],
                     'phone_number' => $input['phone_number'],
@@ -59,6 +60,10 @@ class CreateNewUser implements CreatesNewUsers
                 if ($role) {
                     $user->roles()->attach($role);
                 }
+
+                Cart::create([
+                    'customer_id' => $customer->id,
+                ]);
             }
             elseif ($input['role'] === 'vendor') {
                 $vendor = Vendor::create([

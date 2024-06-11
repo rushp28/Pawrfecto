@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
@@ -51,7 +52,12 @@ Route::middleware([
         Route::post('carts/add/{productId}', [CartController::class, 'addToCart'])->name('carts.add');
         Route::post('carts/remove/{productId}', [CartController::class, 'removeFromCart'])->name('carts.remove');
         Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+        Route::post('checkout', [CartController::class, 'processCheckout'])->name('process-checkout');
+        Route::post('pay', [PaymentController::class, 'pay'])->name('payment');
+        Route::get('payment/success', [PaymentController::class, 'handleSuccess'])->name('payment.success');
+        Route::get('payment/cancel', [PaymentController::class, 'handleCancel'])->name('payment.cancel');
     });
 });
+//dashboard?paymentId=PAYID-MZUNLGI9PL18678BA038060T&token=EC-0N532393PE8161736&PayerID=4LBP859CLXRJL
 
 Route::get('/vendor-register', [App\Http\Controllers\HomeController::class, 'redirectToVendorRegister'])->name('vendor-register');
