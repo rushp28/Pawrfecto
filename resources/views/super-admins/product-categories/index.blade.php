@@ -1,4 +1,17 @@
 <x-app-layout>
+    @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Success!</strong>
+            <span class="block sm:inline">{{ session('success') }}</span>
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Error!</strong>
+            <span class="block sm:inline">{{ session('error') }}</span>
+        </div>
+    @endif
     <div class="container mx-auto mt-1">
         <div class="px-4 sm:px-6 lg:px-8 bg-white pt-4">
             <div class="sm:flex sm:items-center">
@@ -85,15 +98,9 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div  class="inline-flex" role="group" aria-label="Actions">
-                                    <a href="{{ route('product-categories.show', $product_category->id) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                                    <a href="{{ route('product-categories.edit', $product_category->id) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13 1 9l4-4m10 8 4-4-4-4M14 1l-4 18"/>
-                                        </svg>
-                                        <span class="sr-only">Show</span>
-                                    </a>
-                                    <a href="{{ route('product-categories.edit', $product_category->id) }}" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.728 4.273l-2.055-2.054a2.829 2.829 0 0 0-4 0l-1.1 1.101a2.829 2.829 0 0 0 0 4l2.055 2.055m4.1-4.1L8.728 10.273M9.728 4.273l1.1-1.1a2.829 2.829 0 0 1 4 0l2.055 2.055a2.829 2.829 0 0 1 0 4l-1.1 1.1M10.728 9.273l-6 6a1.5 1.5 0 0 0-.336 1.39l.84 3.36a1.5 1.5 0 0 0 1.825 1.075l3.36-.84a1.5 1.5 0 0 0 1.39-.336l6-6"/>
                                         </svg>
                                         <span class="sr-only">Edit</span>
                                     </a>

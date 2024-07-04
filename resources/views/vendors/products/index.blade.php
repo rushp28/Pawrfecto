@@ -57,7 +57,7 @@
                     @foreach($products as $product)
                         <tr class="bg-white border-b">
                             <td class="px-4 py-4">
-                                <img src="{{ asset('images/hero_image_for_index_page.jpg') }}" class="w-20 md:w-48 max-w-full max-h-full" alt="{{ $product->name }}">
+                                <img src="{{ $product->image }}" class="w-20 md:w-48 max-w-full max-h-full" alt="{{ $product->name }}">
                             </td>
                             <td class="px-6 py-4 font-semibold text-gray-900">{{ $product->name }}</td>
                             <td class="px-6 py-4 font-semibold text-gray-900">{{ $product->productCategory->name }}</td>

@@ -62,6 +62,14 @@ class ProductController extends Controller
         $shopId = auth()->user()->vendor->shop->id;
         $request->merge(['shop_id' => $shopId]);
 
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'uploads');
+            $request->merge(
+                ['image' => $imagePath]
+            );
+        }
+        $imagePath = $request->file('image')->store('images', 'uploads');
+
         (new Product())->create($request->all());
 
         return redirect()->route('products.index');

@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         if ($user->hasRole('super admin')) {
             if ($user->email === "superadmin@pawrfecto.lk") {
-                return redirect()->route('users.index');
+                return redirect()->route('users.index')->with('error', 'Cannot delete the super admin');
             }
 
             $superAdmin = $user->superAdmin;
@@ -42,6 +42,6 @@ class UserController extends Controller
         $user->roles()->detach();
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 }

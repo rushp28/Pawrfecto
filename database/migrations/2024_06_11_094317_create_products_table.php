@@ -21,6 +21,7 @@ return new class extends Migration
             $table->float('discounted_price', 10)->default(0);
             $table->integer('quantity')->default(0);
             $table->boolean('is_active')->default(true);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
@@ -38,7 +41,6 @@ Route::middleware([
     Route::middleware(['role:vendor'])->group(function () {
         Route::resource('vendors', VendorController::class);
         Route::resource('shops', ShopController::class);
-        Route::resource('products', ProductController::class);
     });
 
     Route::middleware(['role:custom vendor role'])->group(function () {
@@ -56,8 +58,14 @@ Route::middleware([
         Route::post('pay', [PaymentController::class, 'pay'])->name('payment');
         Route::get('payment/success', [PaymentController::class, 'handleSuccess'])->name('payment.success');
         Route::get('payment/cancel', [PaymentController::class, 'handleCancel'])->name('payment.cancel');
+        Route::get('/customers/{customer}/orders', [OrderController::class, 'showCustomerOrders'])->name('customer.orders');
     });
+
+    Route::get('/dashboard', [AnalyticsController::class, 'index'])->name('dashboard');
+
+    Route::resource('products', ProductController::class);
+    Route::post('/upload-image', [ImageController::class, 'uploadImage'])->name('upload.image');
+    Route::resource('orders', OrderController::class);
 });
-//dashboard?paymentId=PAYID-MZUNLGI9PL18678BA038060T&token=EC-0N532393PE8161736&PayerID=4LBP859CLXRJL
 
 Route::get('/vendor-register', [App\Http\Controllers\HomeController::class, 'redirectToVendorRegister'])->name('vendor-register');

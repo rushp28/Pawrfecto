@@ -40,6 +40,11 @@
                             <!-- Product Information Section -->
                             <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-md">
                                 <div class="grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-4">
+                                        <x-label for="image" value="{{ __('Product Image') }}" />
+                                        <input id="image" name="image" type="file" class="block w-full mt-1">
+                                        <x-input-error for="image" class="mt-2" />
+                                    </div>
                                     <!-- Product Category ID Field -->
                                     <div class="col-span-6 sm:col-span-4">
                                         <x-label for="product_category_id" value="{{ __('Product Category ID') }}" />

@@ -60,10 +60,10 @@ class PaymentController extends Controller
 
             $cart = auth()->user()->customer->carts->first()->with('products')->first();
 
-            // Create an order in the database
+            // Create an orders in the database
             $order = Order::create([
                 'customer_id' => auth()->user()->customer->id, // Assuming you have authentication and storing the current user ID
-                'order_id' => $data['id'], // Assuming PayPal provides an order ID
+                'order_id' => $data['id'], // Assuming PayPal provides an orders ID
                 'payment_id' => $data['transactions'][0]['related_resources'][0]['sale']['id'], // Adjust this based on PayPal's response
                 'order_date' => now(), // Adjust according to your requirements
                 'product_count' => $cart->product_count, // Initialize product count, adjust according to your needs
@@ -72,6 +72,20 @@ class PaymentController extends Controller
                 'total_tax' => $cart->total_tax, // Assuming PayPal provides tax
                 'total' => $data['transactions'][0]['amount']['total'], // Assuming PayPal provides total
             ]);
+
+            foreach ($cart->products as $product) {
+                $order->products()->attach($product->id, [
+                    'order_id' => $order->id,
+                    'quantity' => $product->pivot->quantity,
+                    'price' => $product->pivot->price,
+                    'discount' => $product->pivot->discount,
+                    'tax' => $product->pivot->tax,
+                ]);
+
+                $product->update([
+                    'quantity' => $product->quantity - $product->pivot->quantity,
+                ]);
+            }
 
             $cart->products()->detach();
             $cart->update([

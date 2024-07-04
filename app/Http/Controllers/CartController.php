@@ -71,6 +71,11 @@ class CartController extends Controller
 
     public function addToCart(Request $request, $productId) {
         $product = Product::findOrFail($productId);
+
+        if ($product->quantity < 1) {
+            return redirect()->back()->with('error', 'Product is out of stock.');
+        }
+
         $customer = auth()->user()->customer;
 
         if (!$customer->carts->isEmpty()) {
@@ -163,8 +168,9 @@ class CartController extends Controller
     public function checkout()
     {
         $cart = Cart::where('customer_id', auth()->user()->customer->id)->first();
+        $customer = $cart->customer;
 
-        return view('customers.carts.checkout', compact('cart'));
+        return view('customers.carts.checkout', compact('cart', 'customer'));
     }
 
     public function processCheckout(Request $request)
@@ -175,7 +181,7 @@ class CartController extends Controller
             return redirect()->route('carts.index')->with('error', 'Your cart is empty.');
         }
 
-        // Handle payment processing, order creation, etc.
+        // Handle payment processing, orders creation, etc.
 
         // Clear the cart after successful checkout
         $cart->products()->detach();

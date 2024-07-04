@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
@@ -62,5 +63,14 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function showCustomerOrders($customerId)
+    {
+        // Fetch the customer with their orders
+        $customer = Customer::with('orders')->findOrFail($customerId);
+
+        // Pass the customer and their orders to the view
+        return view('customers.orders.index', compact('customer'));
     }
 }

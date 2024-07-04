@@ -2,17 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AnalyticsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    protected AnalyticsService $analyticsService;
+
+    public function __construct(AnalyticsService $analyticsService)
+    {
+        $this->analyticsService = $analyticsService;
+    }
+
     public function redirect()
     {
         $user = auth()->user();
 
         if ($user->hasRole('super admin')) {
-            return view('dashboard');
+
+            $totalOrders = $this->analyticsService->totalOrders();
+            $totalOrdersAmount = $this->analyticsService->totalOrdersAmount();
+            $totalCustomers = $this->analyticsService->totalCustomers();
+            $totalVendors = $this->analyticsService->totalVendors();
+            $totalProducts = $this->analyticsService->totalProducts();
+
+            return view('dashboard', compact(
+                'totalOrders',
+                'totalOrdersAmount',
+                'totalCustomers',
+                'totalVendors',
+                'totalProducts',
+            ));
         }
 //        elseif (Auth::user()->hasRole('admin')) {
 //        }
@@ -25,7 +46,7 @@ class HomeController extends Controller
             return view('index');
         }
         else {
-            return view('dashboard');
+            return view('index');
         }
     }
 
